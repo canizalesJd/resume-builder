@@ -1,23 +1,23 @@
-import { Input, Button } from "@nextui-org/react";
+import { Input, Textarea, Button } from "@nextui-org/react";
 
-export default function Education() {
+export default function WorkExperience() {
 	return (
 		<div className="container mx-auto py-3">
-			<h3 className="font-semibold text-lg mb-3">Education</h3>
+			<h3 className="font-semibold text-lg mb-3">Work Experience</h3>
 			<div className="grid grid-cols-2 gap-4">
 				<Input
-					type="text"
-					label="School Name"
-					className="max-w-full"
 					isRequired
-					placeholder="Harvard"
+					type="text"
+					label="Company Name"
+					className="max-w-full"
+					placeholder="Google"
 				/>
 				<Input
-					type="text"
-					label="Degree"
-					className="max-w-full"
 					isRequired
-					placeholder="Computer Science"
+					type="text"
+					label="Title"
+					className="max-w-full"
+					placeholder="Software Developer"
 				/>
 				<Input
 					type="date"
@@ -31,9 +31,16 @@ export default function Education() {
 					className="max-w-full"
 					description="Leave empty if still in progress"
 				/>
+				<Textarea
+					isRequired
+					label="Job Description"
+					placeholder="Briefly describe your work details"
+					className="max-w-full col-span-2"
+				/>
 			</div>
-			{/* TO DO: Add container for the list of education inputs */}
-			<div className="container flex py-1">
+			<div
+				className="container flex py-2 justify-end
+			">
 				<Button variant="bordered" color="primary" className="w-40 mr-4 ">
 					Clear
 				</Button>
