@@ -2,8 +2,7 @@ import { Input, Textarea, Button } from "@nextui-org/react";
 
 export default function WorkExperience() {
 	return (
-		<div className="container mx-auto py-3">
-			<h3 className="font-semibold text-lg mb-3">Work Experience</h3>
+		<div className="container mx-auto pb-3">
 			<div className="grid md:grid-cols-2 grid-cols-1 gap-4">
 				<Input
 					isRequired

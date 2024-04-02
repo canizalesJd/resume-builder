@@ -3,8 +3,7 @@ import { PlusIcon } from "../icons/PlusIcon";
 
 export default function Skills() {
 	return (
-		<div className="container mx-auto py-3">
-			<h3 className="font-semibold text-lg mb-3">Skills</h3>
+		<div className="container mx-auto pb-3">
 			<div className="grid md:grid-cols-3 grid-cols-2 gap-4 items-center">
 				<Input
 					isClearable
