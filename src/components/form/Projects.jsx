@@ -5,7 +5,7 @@ export default function Projects() {
 	return (
 		<div className="container mx-auto py-3">
 			<h3 className="font-semibold text-lg mb-3">Projects</h3>
-			<div className="grid grid-cols-3 gap-4">
+			<div className="grid md:grid-cols-3 grid-cols-1 gap-4">
 				<Input
 					isRequired
 					type="text"
@@ -31,7 +31,7 @@ export default function Projects() {
 					isRequired
 					label="Project Description"
 					placeholder="Briefly describe your project details"
-					className="max-w-full col-span-3"
+					className="max-w-full md:col-span-3"
 				/>
 			</div>
 			<div

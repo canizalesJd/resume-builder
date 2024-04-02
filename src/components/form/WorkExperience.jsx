@@ -4,7 +4,7 @@ export default function WorkExperience() {
 	return (
 		<div className="container mx-auto py-3">
 			<h3 className="font-semibold text-lg mb-3">Work Experience</h3>
-			<div className="grid grid-cols-2 gap-4">
+			<div className="grid md:grid-cols-2 grid-cols-1 gap-4">
 				<Input
 					isRequired
 					type="text"
@@ -35,7 +35,7 @@ export default function WorkExperience() {
 					isRequired
 					label="Job Description"
 					placeholder="Briefly describe your work details"
-					className="max-w-full col-span-2"
+					className="max-w-full md:col-span-2"
 				/>
 			</div>
 			<div
