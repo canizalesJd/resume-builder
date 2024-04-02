@@ -1,5 +1,7 @@
 import Header from "./components/Header";
 import Form from "./components/Form";
+import PDFTemplate from "./components/PDFTemplate";
+
 export default function App() {
 	return (
 		<>
@@ -10,7 +12,9 @@ export default function App() {
 					<div className="py-5 container mx-auto w-full lg:w-11/12">
 						<Form />
 					</div>
-					<div className="bg-gray-200 p-4 min-h-full"></div>
+					<div className="bg-gray-200 p-4 min-h-full">
+						<PDFTemplate />
+					</div>
 				</div>
 			</div>
 		</>
