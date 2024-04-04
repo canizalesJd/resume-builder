@@ -4,10 +4,4 @@ import Skills from "./Skills";
 import WorkExperience from "./WorkExperience";
 import Projects from "./Projects";
 
-export default {
-	Education,
-	PersonalInformation,
-	Skills,
-	WorkExperience,
-	Projects,
-};
+export { Education, PersonalInformation, Skills, WorkExperience, Projects };
