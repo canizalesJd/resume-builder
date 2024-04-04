@@ -98,6 +98,31 @@ const PDFTemplate = () => {
 								</p>
 							</div>
 							<div className="mb-5">
+								<p className="font-semibold text-lg mb-1">Projects</p>
+								<div className="mb-2">
+									<p className="text-sm font-semibold">Resume Builder</p>
+									<p className="text-xs text-foreground-600 mb-1">
+										React, TailwindCSS
+									</p>
+									<p className="text-sm text-blue-500 mb-1">
+										www.resume-builder.com
+									</p>
+									<p className="text-sm">
+										Dynamic creation of Resumes, built with NextUi and React.
+									</p>
+								</div>
+								<div className="mb-2">
+									<p className="text-sm font-semibold">Netflix Clone</p>
+									<p className="text-xs text-foreground-600 mb-1">
+										React, Shadcn UI, TailwindCSS, Supabase
+									</p>
+									<p className="text-sm">
+										A Netflix Clone built with React, Shadcn UI, TailwindCSS,
+										Supabase.
+									</p>
+								</div>
+							</div>
+							<div className="mb-5">
 								<p className="font-semibold text-lg mb-1">Education</p>
 								<div className="mb-2">
 									<p className="text-sm font-semibold">
