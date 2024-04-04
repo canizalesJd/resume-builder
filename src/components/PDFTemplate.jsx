@@ -1,4 +1,5 @@
 import generatePDF, { Margin } from "react-to-pdf";
+import { Button } from "@nextui-org/react";
 
 const options = {
 	method: "open",
@@ -19,12 +20,17 @@ const getTargetElement = () => document.getElementById("content-id");
 const PDFTemplate = () => {
 	return (
 		<div>
-			<button onClick={() => generatePDF(getTargetElement, options)}>
-				Generate PDF
-			</button>
+			<div className="container mx-auto py-0 px-20">
+				<Button
+					color="primary"
+					onClick={() => generatePDF(getTargetElement, options)}>
+					Download PDF
+				</Button>
+			</div>
+
 			<div className="container mx-auto py-5 px-20">
 				<div id="content-id" className="bg-white min-h-[800px]">
-					<div className="items-center px-10 py-4 text-foreground">
+					<div className="items-center px-10 py-7 text-foreground">
 						<p className="text-3xl font-bold">John Doe</p>
 						<p className="text-md font-semibold ">Software Developer</p>
 						<div className="flex justify-items-between py-2">
@@ -41,6 +47,8 @@ const PDFTemplate = () => {
 					</div>
 					<div className="flex">
 						<div className="px-10 py-2 w-8/12">
+							<p className="font-semibold text-xl">Experience</p>
+
 							<div className="py-1">
 								<p className="text-md font-semibold">SDE 2 - Google</p>
 								<p className="text-sm text-foreground-600 mb-1">
@@ -75,18 +83,39 @@ const PDFTemplate = () => {
 							</div>
 						</div>
 						<div className="px-5 py-2 w-4/12">
-							<p className="font-semibold text-lg">Skills</p>
-							<p className="text-sm text-foreground-600 mb-1">
-								Javascript, React, NodeJS
-							</p>
-							<p className="text-sm text-foreground-600 mb-1">
-								HTML, CSS, TailwindCSS
-							</p>
-							<p className="text-sm text-foreground-600 mb-1">Supabase</p>
-							<p className="text-sm text-foreground-600 mb-1">Firebase</p>
-							<p className="text-sm text-foreground-600 mb-1">
-								Python and Flask
-							</p>
+							<div className="mb-5">
+								<p className="font-semibold text-lg mb-1">Skills</p>
+								<p className="text-sm text-foreground-600 mb-1">
+									Javascript, React, NodeJS
+								</p>
+								<p className="text-sm text-foreground-600 mb-1">
+									HTML, CSS, TailwindCSS
+								</p>
+								<p className="text-sm text-foreground-600 mb-1">Supabase</p>
+								<p className="text-sm text-foreground-600 mb-1">Firebase</p>
+								<p className="text-sm text-foreground-600 mb-1">
+									Python and Flask
+								</p>
+							</div>
+							<div className="mb-5">
+								<p className="font-semibold text-lg mb-1">Education</p>
+								<div className="mb-2">
+									<p className="text-sm font-semibold">
+										Certified AWS Solutions Architect- AWS
+									</p>
+									<p className="text-sm text-foreground-600">
+										Jun 2020 - Aug 2020
+									</p>
+								</div>
+								<div className="mb-2">
+									<p className="text-sm font-semibold">
+										Computer Science - Harvard
+									</p>
+									<p className="text-sm text-foreground-600">
+										Apr 2014 - Dec 2018
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
