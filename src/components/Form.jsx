@@ -1,14 +1,18 @@
-import Education from "./form/Education";
-import PersonalInformation from "./form/PersonalInformation";
-import Skills from "./form/Skills";
-import WorkExperience from "./form/WorkExperience";
 import { Accordion, AccordionItem } from "@nextui-org/react";
-import { SchoolIcon } from "./icons/SchoolIcon";
-import { UserIcon } from "./icons/UserIcon";
-import { BriefcaseIcon } from "./icons/BriefcaseIcon";
-import { BulbIcon } from "./icons/BulbIcon";
-import { BracketsIcon } from "./icons/BracketsIcon";
-import Projects from "./form/Projects";
+import {
+	SchoolIcon,
+	UserIcon,
+	BriefcaseIcon,
+	BulbIcon,
+	BracketsIcon,
+} from "./icons/IconExports";
+import {
+	Education,
+	PersonalInformation,
+	Skills,
+	WorkExperience,
+	Projects,
+} from "./form/FormExports";
 const Form = () => {
 	return (
 		<div>
