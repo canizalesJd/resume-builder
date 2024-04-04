@@ -7,6 +7,8 @@ import { SchoolIcon } from "./icons/SchoolIcon";
 import { UserIcon } from "./icons/UserIcon";
 import { BriefcaseIcon } from "./icons/BriefcaseIcon";
 import { BulbIcon } from "./icons/BulbIcon";
+import { BracketsIcon } from "./icons/BracketsIcon";
+import Projects from "./form/Projects";
 const Form = () => {
 	return (
 		<div>
@@ -43,6 +45,15 @@ const Form = () => {
 					title={<h3 className="text-foreground-600">Skills</h3>}
 					startContent={<BulbIcon className="text-2xl text-foreground-400" />}>
 					{<Skills />}
+				</AccordionItem>
+				<AccordionItem
+					key="5"
+					aria-label="Projects"
+					title={<h3 className="text-foreground-600">Projects</h3>}
+					startContent={
+						<BracketsIcon className="text-2xl text-foreground-400" />
+					}>
+					{<Projects />}
 				</AccordionItem>
 			</Accordion>
 		</div>
