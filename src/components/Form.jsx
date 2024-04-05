@@ -13,7 +13,7 @@ import {
 	WorkExperience,
 	Projects,
 } from "./form/FormExports";
-const Form = () => {
+const Form = ({ onFormDataChange }) => {
 	return (
 		<div>
 			<h2 className="text-xl p-4 font-semibold">Content</h2>
@@ -23,7 +23,11 @@ const Form = () => {
 					aria-label="Personal Information"
 					title={<h3 className="text-foreground-600">Personal Information</h3>}
 					startContent={<UserIcon className="text-2xl text-foreground-400" />}>
-					{<PersonalInformation />}
+					{
+						<PersonalInformation
+							onDataChange={(data) => onFormDataChange("personalInfo", data)}
+						/>
+					}
 				</AccordionItem>
 				<AccordionItem
 					key="2"

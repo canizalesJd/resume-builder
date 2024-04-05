@@ -17,7 +17,8 @@ const options = {
 // you can use a function to return the target element besides using React refs
 const getTargetElement = () => document.getElementById("content-id");
 
-const PDFTemplate = () => {
+const PDFTemplate = ({ formData }) => {
+	const { personalInfo } = formData;
 	return (
 		<div>
 			<div className="container mx-auto py-0 px-20">
@@ -31,17 +32,23 @@ const PDFTemplate = () => {
 			<div className="container mx-auto py-5 px-20">
 				<div id="content-id" className="bg-white min-h-[800px]">
 					<div className="items-center px-10 py-7 text-foreground">
-						<p className="text-3xl font-bold">John Doe</p>
-						<p className="text-md font-semibold ">Software Developer</p>
+						<p className="text-3xl font-bold">
+							{personalInfo.fullName ? personalInfo.fullName : "John Doe"}
+						</p>
+						<p className="text-md font-semibold ">
+							{personalInfo.jobtTitle
+								? personalInfo.jobtTitle
+								: "Software Developer"}
+						</p>
 						<div className="flex justify-items-between py-2">
 							<p className="text-sm text-foreground-500 mr-5 underline">
-								john_doe@email.com
+								{personalInfo.email ? personalInfo.email : "john_doe@email.com"}
 							</p>
 							<p className="text-sm text-foreground-500 mr-5 underline">
-								+506 8888 8888
+								{personalInfo.phone ? personalInfo.phone : "+506 8888 8888"}
 							</p>
 							<p className="text-sm text-foreground-500 mr-5">
-								San Jose, Costa Rica
+								{personalInfo.location}
 							</p>
 						</div>
 					</div>
