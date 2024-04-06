@@ -47,7 +47,7 @@ const Form = ({ setFormData }) => {
 					startContent={
 						<BriefcaseIcon className="text-2xl text-foreground-400" />
 					}>
-					{<WorkExperience />}
+					{<WorkExperience onDataChange={handleFormDataChange(setFormData)} />}
 				</AccordionItem>
 				<AccordionItem
 					key="3"
