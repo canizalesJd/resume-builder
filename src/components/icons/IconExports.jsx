@@ -5,6 +5,9 @@ import { LinkIcon } from "./LinkIcon";
 import { PlusIcon } from "./PlusIcon";
 import { SchoolIcon } from "./SchoolIcon";
 import { UserIcon } from "./UserIcon";
+import { EyeIcon } from "./EyeIcon";
+import { EyeOffIcon } from "./EyeOffIcon";
+import { TrashIcon } from "./TrashIcon";
 
 export {
 	BracketsIcon,
@@ -14,4 +17,7 @@ export {
 	PlusIcon,
 	SchoolIcon,
 	UserIcon,
+	EyeIcon,
+	EyeOffIcon,
+	TrashIcon,
 };
