@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Input } from "@nextui-org/react";
 
 const PersonalInformation = ({ onDataChange }) => {
@@ -12,16 +12,13 @@ const PersonalInformation = ({ onDataChange }) => {
 
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
-		setPersonalInfo((prevState) => ({
-			...prevState,
+		const updatedPersonalInfo = {
+			...personalInfo,
 			[name]: value,
-		}));
-		onDataChange(personalInfo);
+		};
+		setPersonalInfo(updatedPersonalInfo);
+		onDataChange("personalInfo", updatedPersonalInfo);
 	};
-
-	useEffect(() => {
-		onDataChange(personalInfo);
-	}, [personalInfo, onDataChange]);
 
 	return (
 		<div className="container mx-auto pb-3">

@@ -36,8 +36,8 @@ const PDFTemplate = ({ formData }) => {
 							{personalInfo.fullName ? personalInfo.fullName : "John Doe"}
 						</p>
 						<p className="text-md font-semibold ">
-							{personalInfo.jobtTitle
-								? personalInfo.jobtTitle
+							{personalInfo.jobTitle
+								? personalInfo.jobTitle
 								: "Software Developer"}
 						</p>
 						<div className="flex justify-items-between py-2">

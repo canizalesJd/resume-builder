@@ -13,7 +13,15 @@ import {
 	WorkExperience,
 	Projects,
 } from "./form/FormExports";
-const Form = ({ onFormDataChange }) => {
+
+const handleFormDataChange = (setFormData) => (section, data) => {
+	setFormData((prevData) => ({
+		...prevData,
+		[section]: data,
+	}));
+};
+
+const Form = ({ setFormData }) => {
 	return (
 		<div>
 			<h2 className="text-xl p-4 font-semibold">Content</h2>
@@ -25,7 +33,7 @@ const Form = ({ onFormDataChange }) => {
 					startContent={<UserIcon className="text-2xl text-foreground-400" />}>
 					{
 						<PersonalInformation
-							onDataChange={(data) => onFormDataChange("personalInfo", data)}
+							onDataChange={handleFormDataChange(setFormData)}
 						/>
 					}
 				</AccordionItem>
@@ -67,4 +75,5 @@ const Form = ({ onFormDataChange }) => {
 		</div>
 	);
 };
+
 export default Form;
