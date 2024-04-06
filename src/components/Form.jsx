@@ -25,7 +25,10 @@ const Form = ({ setFormData }) => {
 	return (
 		<div>
 			<h2 className="text-xl p-4 font-semibold">Content</h2>
-			<Accordion variant="splitted" defaultExpandedKeys={["1", "2"]}>
+			<Accordion
+				variant="splitted"
+				defaultExpandedKeys={["1", "2"]}
+				keepContentMounted>
 				<AccordionItem
 					key="1"
 					aria-label="Personal Information"
