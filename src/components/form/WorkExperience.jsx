@@ -9,8 +9,10 @@ import {
 } from "@nextui-org/react";
 import { ListboxWrapper } from "../ui/ListboxWrapper";
 import { EyeOffIcon, EyeIcon, TrashIcon, PlusIcon } from "../icons/IconExports";
+import { PenIcon } from "../icons/PenIcon";
 
 export default function WorkExperience({ onDataChange }) {
+	const [editMode, setEditMode] = useState(false);
 	const [showForm, setShowForm] = useState(false);
 	const [experienceList, setExperienceList] = useState([]);
 	const [experience, setExperience] = useState({
@@ -38,7 +40,7 @@ export default function WorkExperience({ onDataChange }) {
 		setShowForm(!showForm);
 	};
 
-	const clearData = () => {
+	const clearForm = () => {
 		setExperience({
 			uuid: uuid(),
 			companyName: "",
@@ -55,12 +57,49 @@ export default function WorkExperience({ onDataChange }) {
 	const addExperience = () => {
 		onDataChange("experience", experience);
 		setExperienceList([...experienceList, experience]);
-		clearData();
+		clearForm();
+		setEditMode(false);
+	};
+
+	const handleDelete = (uuid) => {
+		const updatedExperienceList = experienceList.filter(
+			(experience) => experience.uuid !== uuid
+		);
+		setExperienceList(updatedExperienceList);
+		onDataChange("experience", updatedExperienceList);
+	};
+
+	const handleHideExperience = (uuid) => {
+		const updatedExperienceList = experienceList.map((experience) => {
+			if (experience.uuid === uuid) {
+				return {
+					...experience,
+					visible: !experience.visible,
+				};
+			}
+			return experience;
+		});
+		setExperienceList(updatedExperienceList);
+		onDataChange("experience", updatedExperienceList);
+	};
+
+	const handleEdit = (uuid) => {
+		const filteredExperience = experienceList.find(
+			(experience) => experience.uuid === uuid
+		);
+		setExperience(filteredExperience);
+		setShowForm(true);
+		setEditMode(true);
+	};
+
+	const handleCancel = () => {
+		setShowForm(false);
+		setEditMode(false);
+		clearForm();
 	};
 
 	return (
 		<div className="container mx-auto pb-3">
-			{/* show form if showForm is true */}
 			{showForm && (
 				<div className="grid md:grid-cols-2 grid-cols-1 gap-4">
 					<Input
@@ -115,11 +154,11 @@ export default function WorkExperience({ onDataChange }) {
 							variant="bordered"
 							color="primary"
 							className="w-40 mr-4"
-							onClick={handleShowForm}>
+							onClick={handleCancel}>
 							Cancel
 						</Button>
 						<Button color="primary" className="w-40" onClick={addExperience}>
-							Save
+							{editMode ? "Update" : "Save"}
 						</Button>
 					</div>
 				</div>
@@ -138,11 +177,32 @@ export default function WorkExperience({ onDataChange }) {
 									endContent={
 										<div className="flex justify-between">
 											{experience.visible ? (
-												<EyeIcon className="text-2xl text-foreground-400 hover:text-foreground-600" />
+												<EyeIcon
+													className="text-2xl text-foreground-400 hover:text-foreground-600"
+													onClick={() => {
+														handleHideExperience(experience.uuid);
+													}}
+												/>
 											) : (
-												<EyeOffIcon className="text-2xl text-foreground-400 hover:text-foreground-600" />
+												<EyeOffIcon
+													className="text-2xl text-foreground-400 hover:text-foreground-600"
+													onClick={() => {
+														handleHideExperience(experience.uuid);
+													}}
+												/>
 											)}
-											<TrashIcon className="text-2xl text-foreground-400 ml-2 hover:text-red-400" />
+											<PenIcon
+												className="text-2xl text-foreground-400 ml-2 hover:text-foreground-600"
+												onClick={() => {
+													handleEdit(experience.uuid);
+												}}
+											/>
+											<TrashIcon
+												className="text-2xl text-foreground-400 ml-2 hover:text-red-400"
+												onClick={() => {
+													handleDelete(experience.uuid);
+												}}
+											/>
 										</div>
 									}>
 									{experience.companyName + " - " + experience.title}
@@ -152,7 +212,6 @@ export default function WorkExperience({ onDataChange }) {
 					</ListboxWrapper>
 				</div>
 			)}
-			{/* show button if showForm is false */}
 			{showForm === false && (
 				<div className="flex justify-center pt-3">
 					<Button
