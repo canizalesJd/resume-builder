@@ -34,7 +34,6 @@ export default function WorkExperience({ onDataChange }) {
 			uuid: uuid(),
 		};
 		setExperience(updatedExperience);
-		onDataChange("experience", updatedExperience);
 	};
 
 	const handleShowForm = () => {
@@ -51,7 +50,6 @@ export default function WorkExperience({ onDataChange }) {
 			description: "",
 			visible: true,
 		});
-		onDataChange("experience", {});
 		setShowForm(false);
 		setEditId(null);
 	};
@@ -62,10 +60,10 @@ export default function WorkExperience({ onDataChange }) {
 				exp.uuid === editId ? experience : exp
 			);
 			setExperienceList(updatedExperienceList);
-			onDataChange("experience", updatedExperienceList);
+			onDataChange("experienceList", updatedExperienceList);
 		} else {
 			setExperienceList([...experienceList, experience]);
-			onDataChange("experience", [...experienceList, experience]);
+			onDataChange("experienceList", [...experienceList, experience]);
 		}
 		clearForm();
 		setEditMode(false);
@@ -76,7 +74,7 @@ export default function WorkExperience({ onDataChange }) {
 			(experience) => experience.uuid !== uuid
 		);
 		setExperienceList(updatedExperienceList);
-		onDataChange("experience", updatedExperienceList);
+		onDataChange("experienceList", updatedExperienceList);
 	};
 
 	const handleHideExperience = (uuid) => {
@@ -90,7 +88,7 @@ export default function WorkExperience({ onDataChange }) {
 			return experience;
 		});
 		setExperienceList(updatedExperienceList);
-		onDataChange("experience", updatedExperienceList);
+		onDataChange("experienceList", updatedExperienceList);
 	};
 
 	const handleEdit = (uuid) => {

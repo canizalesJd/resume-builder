@@ -5,7 +5,7 @@ import PDFTemplate from "./PDFTemplate";
 const ResumeBuilder = () => {
 	const [formData, setFormData] = useState({
 		personalInfo: {},
-		workExperience: [],
+		experienceList: [],
 		education: [],
 		skills: [],
 		projects: [],

@@ -18,7 +18,7 @@ const options = {
 const getTargetElement = () => document.getElementById("content-id");
 
 const PDFTemplate = ({ formData }) => {
-	const { personalInfo } = formData;
+	const { personalInfo, experienceList } = formData;
 	return (
 		<div>
 			<div className="container mx-auto py-0 px-20">
@@ -53,42 +53,28 @@ const PDFTemplate = ({ formData }) => {
 						</div>
 					</div>
 					<div className="flex">
-						<div className="px-10 py-2 w-8/12">
-							<p className="font-semibold text-xl">Experience</p>
+						{experienceList.length > 0 && (
+							<div className="px-10 py-2 w-8/12">
+								<p className="font-semibold text-xl">Experience</p>
+								{experienceList.map((experience) => {
+									return (
+										<div
+											className={experience.visible ? "py-1" : "hidden"}
+											key={experience.uuid}>
+											<p className="text-md font-semibold">
+												{experience.title}
+											</p>
+											<p className="text-sm text-foreground-600 mb-1">
+												{experience.startDate} -{" "}
+												{experience.endDate ? experience.endDate : "Now"}
+											</p>
+											<p className="text-sm">{experience.description}</p>
+										</div>
+									);
+								})}
+							</div>
+						)}
 
-							<div className="py-1">
-								<p className="text-md font-semibold">SDE 2 - Google</p>
-								<p className="text-sm text-foreground-600 mb-1">
-									Jan 2022 - Now
-								</p>
-								<p className="text-sm">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Voluptate, quisquam!
-								</p>
-							</div>
-							<div className="py-1">
-								<p className="text-md font-semibold">SDE 1 - Amazon</p>
-								<p className="text-sm text-foreground-600 mb-1">
-									Aug 2019 - Dec 2021
-								</p>
-								<p className="text-sm">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Voluptate, quisquam!
-								</p>
-							</div>
-							<div className="py-1">
-								<p className="text-md font-semibold">
-									Junior React Developer - Vercel
-								</p>
-								<p className="text-sm text-foreground-600 mb-1">
-									Dec 2018 - Jul 2019
-								</p>
-								<p className="text-sm">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Voluptate, quisquam!
-								</p>
-							</div>
-						</div>
 						<div className="px-5 py-2 w-4/12">
 							<div className="mb-5">
 								<p className="font-semibold text-lg mb-1">Skills</p>
