@@ -8,10 +8,15 @@ import {
 	ListboxItem,
 } from "@nextui-org/react";
 import { ListboxWrapper } from "../ui/ListboxWrapper";
-import { EyeOffIcon, EyeIcon, TrashIcon, PlusIcon } from "../icons/IconExports";
-import { PenIcon } from "../icons/PenIcon";
+import {
+	EyeOffIcon,
+	EyeIcon,
+	TrashIcon,
+	PlusIcon,
+	PenIcon,
+} from "../icons/IconExports";
 
-export default function WorkExperience({ onDataChange }) {
+const WorkExperience = ({ onDataChange }) => {
 	const [editId, setEditId] = useState(null);
 	const [editMode, setEditMode] = useState(false);
 	const [showForm, setShowForm] = useState(false);
@@ -234,4 +239,5 @@ export default function WorkExperience({ onDataChange }) {
 			)}
 		</div>
 	);
-}
+};
+export default WorkExperience;

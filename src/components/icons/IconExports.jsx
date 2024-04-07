@@ -8,6 +8,7 @@ import { UserIcon } from "./UserIcon";
 import { EyeIcon } from "./EyeIcon";
 import { EyeOffIcon } from "./EyeOffIcon";
 import { TrashIcon } from "./TrashIcon";
+import { PenIcon } from "./PenIcon";
 
 export {
 	BracketsIcon,
@@ -20,4 +21,5 @@ export {
 	EyeIcon,
 	EyeOffIcon,
 	TrashIcon,
+	PenIcon,
 };

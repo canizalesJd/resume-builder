@@ -63,7 +63,7 @@ const Form = ({ setFormData }) => {
 					aria-label="Skills"
 					title={<h3 className="text-foreground-600">Skills</h3>}
 					startContent={<BulbIcon className="text-2xl text-foreground-400" />}>
-					{<Skills />}
+					{<Skills onDataChange={handleFormDataChange(setFormData)} />}
 				</AccordionItem>
 				<AccordionItem
 					key="5"
