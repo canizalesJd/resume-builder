@@ -18,7 +18,7 @@ const options = {
 const getTargetElement = () => document.getElementById("content-id");
 
 const PDFTemplate = ({ formData }) => {
-	const { personalInfo, experienceList } = formData;
+	const { personalInfo, experienceList, skillsList } = formData;
 	return (
 		<div>
 			<div className="container mx-auto py-0 px-20">
@@ -76,20 +76,21 @@ const PDFTemplate = ({ formData }) => {
 						)}
 
 						<div className="px-5 py-2 w-4/12">
-							<div className="mb-5">
-								<p className="font-semibold text-lg mb-1">Skills</p>
-								<p className="text-sm text-foreground-600 mb-1">
-									Javascript, React, NodeJS
-								</p>
-								<p className="text-sm text-foreground-600 mb-1">
-									HTML, CSS, TailwindCSS
-								</p>
-								<p className="text-sm text-foreground-600 mb-1">Supabase</p>
-								<p className="text-sm text-foreground-600 mb-1">Firebase</p>
-								<p className="text-sm text-foreground-600 mb-1">
-									Python and Flask
-								</p>
-							</div>
+							{skillsList.length > 0 && (
+								<div className="mb-5">
+									<p className="font-semibold text-lg mb-1">Skills</p>
+									{skillsList.map((skill) => {
+										return (
+											<p
+												className="text-sm text-foreground-600 mb-1"
+												key={skill.uuid}>
+												{skill.skillName}
+											</p>
+										);
+									})}
+								</div>
+							)}
+
 							<div className="mb-5">
 								<p className="font-semibold text-lg mb-1">Projects</p>
 								<div className="mb-2">

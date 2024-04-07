@@ -8,7 +8,6 @@ const Skills = ({ onDataChange }) => {
 	const [skill, setSkill] = useState({
 		uuid: uuid(),
 		skillName: "",
-		visible: true,
 	});
 
 	const [skillsList, setSkillsList] = useState([]);
@@ -22,13 +21,17 @@ const Skills = ({ onDataChange }) => {
 		setSkill(updatedExperience);
 	};
 
-	const addSkill = () => {
-		onDataChange("skillsList", skillsList);
-		setSkillsList([...skillsList, skill]);
+	const clearData = () => {
 		setSkill({
 			uuid: uuid(),
 			skillName: "",
 		});
+	};
+
+	const addSkill = () => {
+		setSkillsList([...skillsList, skill]);
+		onDataChange("skillsList", [...skillsList, skill]);
+		clearData();
 	};
 
 	const handleDelete = (uuid) => {
