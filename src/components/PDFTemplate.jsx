@@ -8,7 +8,6 @@ const options = {
 		margin: Margin.NONE,
 	},
 	canvas: {
-		// default is 'image/jpeg' for better size performance
 		mimeType: "image/jpeg",
 		qualityRatio: 1,
 	},
@@ -31,20 +30,14 @@ const PDFTemplate = ({ formData }) => {
 			<div className="container mx-auto py-5 px-20">
 				<div id="content-id" className="bg-white min-h-[800px]">
 					<div className="items-center px-10 py-7 text-foreground">
-						<p className="text-3xl font-bold">
-							{personalInfo.fullName ? personalInfo.fullName : "John Doe"}
-						</p>
-						<p className="text-md font-semibold ">
-							{personalInfo.jobTitle
-								? personalInfo.jobTitle
-								: "Software Developer"}
-						</p>
+						<p className="text-3xl font-bold">{personalInfo.fullName}</p>
+						<p className="text-md font-semibold ">{personalInfo.jobTitle}</p>
 						<div className="flex justify-items-between py-2">
 							<p className="text-sm text-foreground-500 mr-5 underline">
-								{personalInfo.email ? personalInfo.email : "john_doe@email.com"}
+								{personalInfo.email}
 							</p>
 							<p className="text-sm text-foreground-500 mr-5 underline">
-								{personalInfo.phone ? personalInfo.phone : "+506 8888 8888"}
+								{personalInfo.phone}
 							</p>
 							<p className="text-sm text-foreground-500 mr-5">
 								{personalInfo.location}
