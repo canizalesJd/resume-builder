@@ -14,11 +14,10 @@ const options = {
 	},
 };
 
-// you can use a function to return the target element besides using React refs
 const getTargetElement = () => document.getElementById("content-id");
 
 const PDFTemplate = ({ formData }) => {
-	const { personalInfo, experienceList, skillsList } = formData;
+	const { personalInfo, experienceList, skillsList, educationList } = formData;
 	return (
 		<div>
 			<div className="container mx-auto py-0 px-20">
@@ -65,7 +64,7 @@ const PDFTemplate = ({ formData }) => {
 												{experience.title}
 											</p>
 											<p className="text-sm text-foreground-600 mb-1">
-												{experience.startDate} -{" "}
+												{experience.startDate} {" - "}
 												{experience.endDate ? experience.endDate : "Now"}
 											</p>
 											<p className="text-sm">{experience.description}</p>
@@ -117,7 +116,24 @@ const PDFTemplate = ({ formData }) => {
 								</div>
 							</div>
 							<div className="mb-5">
-								<p className="font-semibold text-lg mb-1">Education</p>
+								{educationList.length > 0 && (
+									<div className="mb-5">
+										<p className="font-semibold text-lg mb-1">Education</p>
+										{educationList.map((skill) => {
+											return (
+												<div key={skill.uuid}>
+													<p className="text-sm font-semibold">
+														{skill.degree + " - " + skill.schoolName}
+													</p>
+													<p className="text-sm text-foreground-600">
+														{skill.startDate} {" - "}
+														{skill.endDate ? skill.endDate : "Now"}
+													</p>
+												</div>
+											);
+										})}
+									</div>
+								)}
 								<div className="mb-2">
 									<p className="text-sm font-semibold">
 										Certified AWS Solutions Architect- AWS
