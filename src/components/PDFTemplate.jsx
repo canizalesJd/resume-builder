@@ -26,7 +26,7 @@ const PDFTemplate = ({ formData }) => {
 	} = formData;
 	return (
 		<div>
-			<div className="container mx-auto py-0 px-20">
+			<div className="py-5 container mx-auto w-full lg:max-w-2xl">
 				<Button
 					color="primary"
 					onClick={() => generatePDF(getTargetElement, options)}>
@@ -34,7 +34,7 @@ const PDFTemplate = ({ formData }) => {
 				</Button>
 			</div>
 
-			<div className="container mx-auto py-5 px-20">
+			<div className="pb-5 container mx-auto w-full lg:max-w-2xl">
 				<div id="content-id" className="bg-white min-h-[800px]">
 					<div className="items-center px-10 py-7 text-foreground">
 						<p className="text-3xl font-bold">{personalInfo.fullName}</p>

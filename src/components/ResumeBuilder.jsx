@@ -17,7 +17,7 @@ const ResumeBuilder = () => {
 				<div className="py-5 container mx-auto w-full lg:w-11/12">
 					<Form setFormData={setFormData} />
 				</div>
-				<div className="bg-gray-200 p-4 min-h-full">
+				<div className="bg-gray-200 p-4 min-h-full min-w-full">
 					<PDFTemplate formData={formData} />
 				</div>
 			</div>
