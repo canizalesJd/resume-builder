@@ -108,6 +108,7 @@ const PDFTemplate = ({ formData }) => {
 									</p>
 								</div>
 							</div>
+
 							<div className="mb-5">
 								{educationList.length > 0 && (
 									<div className="mb-5">
@@ -127,22 +128,6 @@ const PDFTemplate = ({ formData }) => {
 										})}
 									</div>
 								)}
-								<div className="mb-2">
-									<p className="text-sm font-semibold">
-										Certified AWS Solutions Architect- AWS
-									</p>
-									<p className="text-sm text-foreground-600">
-										Jun 2020 - Aug 2020
-									</p>
-								</div>
-								<div className="mb-2">
-									<p className="text-sm font-semibold">
-										Computer Science - Harvard
-									</p>
-									<p className="text-sm text-foreground-600">
-										Apr 2014 - Dec 2018
-									</p>
-								</div>
 							</div>
 						</div>
 					</div>

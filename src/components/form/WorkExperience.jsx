@@ -226,7 +226,7 @@ const WorkExperience = ({ onDataChange }) => {
 					</ListboxWrapper>
 				</div>
 			)}
-			{showForm === false && (
+			{!showForm && (
 				<div className="flex justify-center pt-3">
 					<Button
 						variant="ghost"

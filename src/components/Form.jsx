@@ -72,7 +72,7 @@ const Form = ({ setFormData }) => {
 					startContent={
 						<BracketsIcon className="text-2xl text-foreground-400" />
 					}>
-					{<Projects />}
+					{<Projects onDataChange={handleFormDataChange(setFormData)} />}
 				</AccordionItem>
 			</Accordion>
 		</div>
