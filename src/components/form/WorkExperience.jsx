@@ -12,6 +12,7 @@ import { EyeOffIcon, EyeIcon, TrashIcon, PlusIcon } from "../icons/IconExports";
 import { PenIcon } from "../icons/PenIcon";
 
 export default function WorkExperience({ onDataChange }) {
+	const [editId, setEditId] = useState(null);
 	const [editMode, setEditMode] = useState(false);
 	const [showForm, setShowForm] = useState(false);
 	const [experienceList, setExperienceList] = useState([]);
@@ -52,11 +53,20 @@ export default function WorkExperience({ onDataChange }) {
 		});
 		onDataChange("experience", {});
 		setShowForm(false);
+		setEditId(null);
 	};
 
 	const addExperience = () => {
-		onDataChange("experience", experience);
-		setExperienceList([...experienceList, experience]);
+		if (editMode && editId) {
+			const updatedExperienceList = experienceList.map((exp) =>
+				exp.uuid === editId ? experience : exp
+			);
+			setExperienceList(updatedExperienceList);
+			onDataChange("experience", updatedExperienceList);
+		} else {
+			setExperienceList([...experienceList, experience]);
+			onDataChange("experience", [...experienceList, experience]);
+		}
 		clearForm();
 		setEditMode(false);
 	};
@@ -90,6 +100,7 @@ export default function WorkExperience({ onDataChange }) {
 		setExperience(filteredExperience);
 		setShowForm(true);
 		setEditMode(true);
+		setEditId(uuid);
 	};
 
 	const handleCancel = () => {
