@@ -16,7 +16,14 @@ const options = {
 const getTargetElement = () => document.getElementById("content-id");
 
 const PDFTemplate = ({ formData }) => {
-	const { personalInfo, experienceList, skillsList, educationList } = formData;
+	console.log(formData);
+	const {
+		personalInfo,
+		experienceList,
+		skillsList,
+		educationList,
+		projectList,
+	} = formData;
 	return (
 		<div>
 			<div className="container mx-auto py-0 px-20">
@@ -83,52 +90,52 @@ const PDFTemplate = ({ formData }) => {
 								</div>
 							)}
 
-							<div className="mb-5">
-								<p className="font-semibold text-lg mb-1">Projects</p>
-								<div className="mb-2">
-									<p className="text-sm font-semibold">Resume Builder</p>
-									<p className="text-xs text-foreground-600 mb-1">
-										React, TailwindCSS
-									</p>
-									<p className="text-sm text-blue-500 mb-1">
-										www.resume-builder.com
-									</p>
-									<p className="text-sm">
-										Dynamic creation of Resumes, built with NextUi and React.
-									</p>
+							{projectList.length > 0 && (
+								<div className="mb-5">
+									<p className="font-semibold text-lg mb-1">Projects</p>
+									{projectList.map((project) => {
+										return (
+											<div
+												className={project.visible ? "mb-2" : "hidden"}
+												key={project.uuid}>
+												<p className="text-sm font-semibold">{project.title}</p>
+												<p className="text-xs text-foreground-600 mb-1">
+													{project.subTitle}
+												</p>
+												{project.url && (
+													<p className="text-sm text-blue-500 mb-1">
+														{project.url}
+													</p>
+												)}
+												<p className="text-sm">{project.description}</p>
+											</div>
+										);
+									})}
 								</div>
-								<div className="mb-2">
-									<p className="text-sm font-semibold">Netflix Clone</p>
-									<p className="text-xs text-foreground-600 mb-1">
-										React, Shadcn UI, TailwindCSS, Supabase
-									</p>
-									<p className="text-sm">
-										A Netflix Clone built with React, Shadcn UI, TailwindCSS,
-										Supabase.
-									</p>
-								</div>
-							</div>
+							)}
 
-							<div className="mb-5">
-								{educationList.length > 0 && (
+							{educationList.length > 0 && (
+								<div className="mb-5">
 									<div className="mb-5">
 										<p className="font-semibold text-lg mb-1">Education</p>
-										{educationList.map((skill) => {
+										{educationList.map((education) => {
 											return (
-												<div key={skill.uuid}>
+												<div
+													key={education.uuid}
+													className={education.visible ? "py-1" : "hidden"}>
 													<p className="text-sm font-semibold">
-														{skill.degree + " - " + skill.schoolName}
+														{education.degree + " - " + education.schoolName}
 													</p>
 													<p className="text-sm text-foreground-600">
-														{skill.startDate} {" - "}
-														{skill.endDate ? skill.endDate : "Now"}
+														{education.startDate} {" - "}
+														{education.endDate ? education.endDate : "Now"}
 													</p>
 												</div>
 											);
 										})}
 									</div>
-								)}
-							</div>
+								</div>
+							)}
 						</div>
 					</div>
 				</div>

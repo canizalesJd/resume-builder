@@ -26,7 +26,7 @@ const Projects = ({ onDataChange }) => {
 		uuid: uuid(),
 		title: "",
 		subTitle: "",
-		projectUrl: "",
+		url: "",
 		description: "",
 		visible: true,
 	});
@@ -46,7 +46,7 @@ const Projects = ({ onDataChange }) => {
 			uuid: uuid(),
 			title: "",
 			subTitle: "",
-			projectUrl: "",
+			url: "",
 			description: "",
 			visible: true,
 		});
@@ -143,9 +143,9 @@ const Projects = ({ onDataChange }) => {
 						endContent={
 							<LinkIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
 						}
-						name="projectUrl"
+						name="url"
 						onChange={handleInputChange}
-						value={project.projectUrl}
+						value={project.url}
 					/>
 					<Textarea
 						isRequired

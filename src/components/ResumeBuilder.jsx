@@ -8,7 +8,7 @@ const ResumeBuilder = () => {
 		experienceList: [],
 		educationList: [],
 		skillsList: [],
-		projects: [],
+		projectList: [],
 	});
 
 	return (
