@@ -56,7 +56,7 @@ const Form = ({ setFormData }) => {
 					startContent={
 						<SchoolIcon className="text-2xl text-foreground-400" />
 					}>
-					{<Education />}
+					{<Education onDataChange={handleFormDataChange(setFormData)} />}
 				</AccordionItem>
 				<AccordionItem
 					key="4"

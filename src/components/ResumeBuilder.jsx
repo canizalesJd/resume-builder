@@ -6,7 +6,7 @@ const ResumeBuilder = () => {
 	const [formData, setFormData] = useState({
 		personalInfo: {},
 		experienceList: [],
-		education: [],
+		educationList: [],
 		skillsList: [],
 		projects: [],
 	});
